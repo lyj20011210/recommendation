@@ -5,13 +5,13 @@ import pymysql
 app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULsT'] = timedelta(seconds=1)
 TEMPLATES_AUTO_RELOAD = True
-
-conn = pymysql.connect(host='localhost',port=3307,user='root',passwd='12345678',charset='utf8')
-
-cursor = conn.cursor()
-
-cursor.execute("show databases;")
-cursor.execute("use recommendation;")
+#
+# conn = pymysql.connect(host='localhost',port=3307,user='root',passwd='12345678',charset='utf8')
+#
+# cursor = conn.cursor()
+#
+# cursor.execute("show databases;")
+# cursor.execute("use recommendation;")
 
 @app.route('/login')
 def login():
@@ -28,9 +28,10 @@ def signin():
 def signinr():
     name = request.form.get("username")
     passwd = request.form.get("password")
-    cursor.execute("select * from user;")
-    user = cursor.fetchall()
-    print(user)
+    # cursor.execute("select * from user;")
+    # user = cursor.fetchall()
+    # print(user)
+    print()
     return render_template('Login.html')
 
 
